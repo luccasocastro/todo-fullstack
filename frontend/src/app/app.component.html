@@ -1,0 +1,26 @@
+<div class="flex flex-column align-items-center justify-content-center">
+  <p-card header="Todo" class="min-w-6">
+
+    <p class="m-0">
+      <p-table [value]="todos" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Realized</th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-todo>
+          <tr>
+            <td>{{ todo.title }}</td>
+            <td>{{ todo.content }}</td>
+            <td><p-checkbox [(ngModel)]="todo.realized" [binary]="true" (onChange)="realizeTodo($event, todo.id)" inputId="binary"></p-checkbox></td>
+            <td><p-button icon="pi pi-trash" styleClass="p-button-danger" (click)="deleteTodo(todo.id)"></p-button></td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p>
+  </p-card>
+</div>
+
