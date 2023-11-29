@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Todo} from "../Todo";
+import {Todo, TodoRequest} from "../Todo";
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +22,9 @@ export class TodoService {
 
   deleteTodo(id: string): Observable<any> {
     return this.http.delete(`${this.baseApiUrl}/${id}`)
+  }
+
+  insertTodo(todo: TodoRequest): Observable<any>{
+    return this.http.post(this.baseApiUrl, todo)
   }
 }

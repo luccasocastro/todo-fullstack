@@ -4,3 +4,8 @@ export interface Todo {
   content: string;
   realized: boolean;
 }
+
+export interface TodoRequest {
+  title: string;
+  content: string;
+}

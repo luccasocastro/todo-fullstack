@@ -1,9 +1,12 @@
-<div class="flex flex-column align-items-center justify-content-center">
-  <p-card header="Todo" class="min-w-6">
-
+<p-toast></p-toast>
+<div class="mt-8 flex flex-column align-items-center justify-content-center">
+  <p-card header="Todo List" class="min-w-6">
     <p class="m-0">
-      <p-table [value]="todos" [tableStyle]="{ 'min-width': '50rem' }">
+      <p-table [value]="todos" [tableStyle]="{ 'max-width': '40rem' }">
         <ng-template pTemplate="header">
+          <div class="mb-3">
+            <p-button label="New" (click)="show()"></p-button>
+          </div>
           <tr>
             <th>Title</th>
             <th>Content</th>
