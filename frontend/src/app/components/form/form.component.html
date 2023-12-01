@@ -1,0 +1,11 @@
+<div class="p-fluid">
+  <div class="p-field">
+    <label for="title">Title</label>
+    <input id="title" type="text" name="title" pInputText [(ngModel)]="todo.title"/>
+  </div>
+  <div class="p-field">
+    <label for="content">Content</label>
+    <textarea id="content" name="content" rows="5" cols="30" pInputTextarea [(ngModel)]="todo.content"></textarea>
+  </div>
+  <p-button label="Submit" icon="pi pi-check" (onClick)="sendData()"></p-button>
+</div>

@@ -24,6 +24,10 @@ export class TodoService {
     return this.http.delete(`${this.baseApiUrl}/${id}`)
   }
 
+  deleteAllTodos(): Observable<any> {
+    return this.http.delete(this.baseApiUrl)
+  }
+
   insertTodo(todo: TodoRequest): Observable<any>{
     return this.http.post(this.baseApiUrl, todo)
   }

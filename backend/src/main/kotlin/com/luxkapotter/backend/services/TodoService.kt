@@ -65,6 +65,14 @@ class TodoService(private val todoRepository: TodoRepository) {
         }
     }
 
+    fun deleteAllTodos(){
+        return try{
+            todoRepository.deleteAll()
+        }catch(ex: Exception){
+            throw Exception("Error deleting all todos!", ex)
+        }
+    }
+
     fun realizeTodo(id: UUID) {
         try{
             val todo = getById(id)

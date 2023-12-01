@@ -48,6 +48,12 @@ class TodoController(private val service: TodoService) {
         return ResponseEntity.noContent().build()
     }
 
+    @DeleteMapping
+    fun deleteAllTodos(): ResponseEntity<Void> {
+        service.deleteAllTodos()
+        return ResponseEntity.noContent().build()
+    }
+
     @PatchMapping("/realizeTodo/{id}")
     fun realizeTodo(@PathVariable id: UUID): ResponseEntity<Void> {
         service.realizeTodo(id)

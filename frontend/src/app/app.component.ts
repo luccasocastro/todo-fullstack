@@ -48,6 +48,13 @@ export class AppComponent implements OnInit {
     })
   }
 
+  deleteAllTodos(){
+    this.todoService.deleteAllTodos().subscribe(() => {
+      this.messageService.add({ severity: 'warn', summary: 'Warn', detail: 'Deleted all todos successfully!' })
+      this.loadData()
+    })
+  }
+
   show() {
     this.ref = this.dialogService.open(FormComponent, {
       header: 'New Todo',
@@ -57,6 +64,10 @@ export class AppComponent implements OnInit {
       baseZIndex: 10000,
       maximizable: false
     })
+  }
+
+  todosRealizados(): boolean {
+    return this.todos && this.todos.every(todo => todo.realized)
   }
 
   showInsertSucces() {
